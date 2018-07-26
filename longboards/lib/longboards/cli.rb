@@ -22,9 +22,14 @@ class Longboards::CLI
   def list_boards
     #iterate through an array of board objects and list their name
     puts "Listing all longboard completes..."
+    Longboards::Scraper.scrape_boards
+    boards = Board.all
+    boards.each.with_index(1) do |board, index|
+      puts "#{index}. #{board.name}"
+    end
   end
 
   def invalid
-    puts "I'm sorry, I do not understand your response."
+    puts "I'm sorry, I do not understand your response. Please try again."
   end
 end
