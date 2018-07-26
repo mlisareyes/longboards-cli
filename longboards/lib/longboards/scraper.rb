@@ -7,11 +7,13 @@ class Longboards::Scraper
     doc.css(".arrayProduct").map do |longboard|
       name = longboard.css(".arrayNew").text
       url = longboard.css("a")[0]["href"]
-      longboard = Longboard.new(name, url)
+      board = Board.new(name, url)
     end
   end
 
   def self.scrape_product_page
-    doc = Nokogiri::HTML(open(BASE_URL + longboard.url))
+    doc = Nokogiri::HTML(open(BASE_URL + board.url))
+    board.price
+    board.description
   end
 end

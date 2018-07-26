@@ -1,5 +1,5 @@
 class Board
-  #what attributes will a board have
+
   attr_accessor :name, :url, :price, :description
 
   @@all = []
@@ -9,8 +9,6 @@ class Board
     @url = url
     @@all << self
   end
-
-
 
   def self.all
     @@all
