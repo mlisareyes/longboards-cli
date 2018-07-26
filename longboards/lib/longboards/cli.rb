@@ -9,10 +9,10 @@ class Longboards::CLI
     puts "Type 'list' to view a list of all longboard completes"
     puts "Type 'exit' to exit program"
     input = gets.strip
-    if input == "list"
+    if input.downcase == "list"
       list_boards
-    elsif input == "exit"
-      puts "Thank you for visiting Warehouse Skateboards! Please visit again!"
+    elsif input.downcase == "exit"
+      puts "Thank you for visiting Warehouse Skateboards! See you again soon!"
     else
       invalid
       main_menu
@@ -20,6 +20,8 @@ class Longboards::CLI
   end
 
   def list_boards
+    #iterate through an array of board objects and list their name
+    puts "Listing all longboard completes..."
   end
 
   def invalid
