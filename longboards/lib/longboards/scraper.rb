@@ -6,7 +6,7 @@ class Longboards::Scraper
     doc = Nokogiri::HTML(open("https://www.warehouseskateboards.com/longboard-completes"))
     doc.css(".arrayProduct").map do |longboard|
       name = longboard.css(".arrayNew").text
-      url = longboard.css("a")[0]("href")
+      url = longboard.css("a")[0]["href"]
       longboard = Longboard.new(name, url)
     end
   end
