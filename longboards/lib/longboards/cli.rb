@@ -1,0 +1,2 @@
+class Longboards::CLI
+end

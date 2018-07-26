@@ -9,4 +9,7 @@ module Longboards
 end
 
 ### REQUIRED FILES ###
-require "longboards/version"
+require_relative "./longboards/version"
+require_relative "./longboards/boards"
+require_relative "./longboards/scraper"
+require_relative "./longboards/cli"
