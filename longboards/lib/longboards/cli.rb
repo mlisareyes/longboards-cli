@@ -32,11 +32,22 @@ class Longboards::CLI
 
     if input.to_i.between?(1, Board.all.size)
       index = input.to_i - 1
+
+      board = Board.all[index]
+      Longboards::Scraper.scrape_product_page(board)
+      display_details(board)
+
     else
       puts "Thank you."
     end
-
   end
+
+  def display_details(board)
+    puts ""
+    puts "Price: #{board.price}"
+    puts "description: #{board.details}"
+    puts ""
+ end
 
   def invalid
     puts "I'm sorry, I do not understand your response. Please try again."
