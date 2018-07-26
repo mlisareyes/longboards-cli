@@ -27,6 +27,15 @@ class Longboards::CLI
     boards.each.with_index(1) do |board, index|
       puts "#{index}. #{board.name}"
     end
+
+    input = gets.strip
+
+    if input.to_i.between?(1, Board.all.size)
+      index = input.to_i - 1
+    else
+      puts "Thank you."
+    end
+
   end
 
   def invalid
