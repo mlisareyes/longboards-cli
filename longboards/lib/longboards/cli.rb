@@ -2,6 +2,7 @@ class Longboards::CLI
 
   def start
     puts "Welcome to Warehouse Skateboards!"
+    Longboards::Scraper.scrape_boards
     main_menu
   end
 
@@ -20,7 +21,6 @@ class Longboards::CLI
   end
 
   def list_boards
-    #iterate through an array of board objects and list their name
     puts "Listing all longboard completes..."
     Longboards::Scraper.scrape_boards
     boards = Board.all
@@ -36,7 +36,6 @@ class Longboards::CLI
       board = Board.all[index]
       Longboards::Scraper.scrape_product_page(board)
       display_details(board)
-
     else
       puts "Thank you."
     end
@@ -45,9 +44,9 @@ class Longboards::CLI
   def display_details(board)
     puts ""
     puts "Price: #{board.price}"
-    puts "description: #{board.details}"
+    puts "Description: #{board.description}"
     puts ""
- end
+  end
 
   def invalid
     puts "I'm sorry, I do not understand your response. Please try again."
