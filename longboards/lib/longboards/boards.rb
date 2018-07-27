@@ -1,4 +1,4 @@
-class Longboards::Board
+class Board
 
   attr_accessor :name, :url, :price, :description
 
