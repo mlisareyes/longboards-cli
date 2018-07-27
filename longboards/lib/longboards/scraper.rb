@@ -12,8 +12,9 @@ class Longboards::Scraper
   end
 
   def self.scrape_product_page(board)
-    doc = Nokogiri::HTML(open(BASE_URL + board.url))
-    board.price = doc.css(".retailprice").text
-    board.description = doc.css("div#productinfo").text
+    doc = Nokogiri::HTML(open(board.url))
+    board.name = doc.css("h1").text.strip
+    board.price = doc.css(".retailprice").text.strip
+    board.description = doc.css("p")[1].text.strip
   end
 end

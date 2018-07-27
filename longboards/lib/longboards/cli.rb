@@ -43,6 +43,7 @@ class Longboards::CLI
 
   def display_details(board)
     puts ""
+    puts "Name: #{board.name}"
     puts "Price: #{board.price}"
     puts "Description: #{board.description}"
     puts ""
