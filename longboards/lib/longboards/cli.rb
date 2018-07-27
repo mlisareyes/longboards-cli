@@ -58,6 +58,7 @@ class Longboards::CLI
       puts "Thank you for visiting Warehouse Skateboards! See you again soon!"
     else
       invalid
+      main_menu
     end
   end
 
