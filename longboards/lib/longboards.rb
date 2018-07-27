@@ -5,7 +5,6 @@ require 'pry'
 
 ### NAMESPACE MODULE ###
 module Longboards
-  # Your code goes here...
 end
 
 ### REQUIRED FILES ###
