@@ -2,6 +2,7 @@ class Longboards::CLI
 
   def start
     puts "Welcome to Warehouse Skateboards!"
+    puts ""
     Longboards::Scraper.scrape_boards
     main_menu
   end
@@ -32,21 +33,32 @@ class Longboards::CLI
 
     if input.to_i.between?(1, Board.all.size)
       index = input.to_i - 1
-
       board = Board.all[index]
       Longboards::Scraper.scrape_product_page(board)
       display_details(board)
     else
-      puts "Thank you."
+      invalid
+      main_menu
     end
   end
 
   def display_details(board)
     puts ""
     puts "Name: #{board.name}"
+    puts ""
     puts "Price: #{board.price}"
+    puts ""
     puts "Description: #{board.description}"
     puts ""
+    puts "Would you like view other longboards? Enter Y or N"
+    input = gets.strip
+    if input.downcase == "y"
+      list_boards
+    elsif input.downcase == "n"
+      puts "Thank you for visiting Warehouse Skateboards! See you again soon!"
+    else
+      invalid
+    end
   end
 
   def invalid
